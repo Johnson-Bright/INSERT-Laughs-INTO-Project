@@ -28,8 +28,8 @@ CREATE TABLE employees (
     hire_date DATE
 );
 ```
-![alt text](<creation of Employee table.png>)
 
+![alt text](<creation of Employee table-1.png>)
 
 Then, we inserted  data into the table:
 
