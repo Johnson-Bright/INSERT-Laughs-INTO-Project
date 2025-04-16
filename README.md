@@ -22,8 +22,8 @@ To begin the assignment, we created a simple dataset related to employees. The t
 ```sql
 CREATE TABLE employees (
     employee_id INT,
-    name VARCHAR(50),
-    department VARCHAR(50),
+    name VARCHAR(70),
+    department VARCHAR(70),
     salary INT,
     hire_date DATE
 );
@@ -62,11 +62,19 @@ SELECT * FROM dual;
 
 ---
 
-## 🔍 SQL Queries and Explanations
+## 🔍 SQL Queries with their Descriptions 
 
-### 1. Compare Salaries Using `LAG()` and `LEAD()`
+### 1. Comparison between salaries using `LAG()` and `LEAD()`
 
-To analyze how each employee's salary compares to others, we use the LAG() and LEAD() window functions. LAG(salary) retrieves the salary of the previous employee in the ordered list, while LEAD(salary) retrieves the salary of the next employee. By using a CASE statement, we label whether the current employee's salary is HIGHER, LOWER, or EQUAL compared to the previous one. This method helps to understand salary progression and identify significant differences between employees in terms of pay.
+![alt text](<Comparison  of Salaries Using LAG() and LEAD().png>)
+
+
+
+- Used `LAG()` and `LEAD()` to compare each Employment’s Salary to the previous and next.
+- Added a column that states whether the current value is `HIGHER`, `LOWER`, or `EQUAL` compared to the previous record.
+
+💡 *Real-Life Application:* Analyzing trends in sales performance day by day.
+
 
 ```sql
 
@@ -81,17 +89,24 @@ SELECT
     END AS comparison_with_previous
 FROM employees;
 ```
-![alt text](<Comparison  of Salaries Using LAG() and LEAD().png>)
 
 
 
-**Explanation:** This compares each employee’s salary with the one before and after them in the list.
+**Real-Life Application:** This is the Analyzing promtions in Employee's Salary day by day.
+
 
 ---
 
 ### 2. Rank Within Departments (`RANK()` and `DENSE_RANK()`)
 
-To rank employees based on their salary within each department, we use RANK() and DENSE_RANK() functions. Both functions partition the data by department and order it by salary in descending order. The difference is that RANK() skips ranking numbers when there are ties, while DENSE_RANK() assigns consecutive numbers even if salaries are equal. For example, if two employees are tied at rank 1, RANK() will give the next one rank 3, while DENSE_RANK() will assign rank 2. These rankings help evaluate employee positions fairly within each department.
+
+![alt text](<Rank Within Departments Using RANK and DENSE_RANK.png>)
+
+
+- Ranked Employees within each region using both `RANK()` and `DENSE_RANK()`.
+- Showed how ties are handled differently:
+  - `RANK()` skips numbers after ties.
+  - `DENSE_RANK()` doesn’t skip any.
 
 
 ```sql
@@ -102,16 +117,19 @@ SELECT
 FROM employees;
 ```
 
-![alt text](<Rank Within Departments Using RANK and DENSE_RANK.png>)
 
 
-**Explanation:** This ranks employees by salary **within their department**.
+**Real-Life Application:** This is Creating fair leaderboard systems in Employee's salary in there Departments.
+
+
 
 ---
 
-### 3. Top 3 Paid Employees Per Department
+### 3. Identifying Top Records
 
-To find the top 3 highest-paid employees in each department, we use a subquery with RANK() over a partition by department and ordered by salary descending. We then filter the results where the rank is less than or equal to 3. This ensures that we correctly capture the top earners in each group, even if there are salary ties. Using ranking functions like RANK() allows us to handle duplicate values appropriately, ensuring fairness in the results.
+
+- Retrieved the **top 3 Employees** from each region using window functions.
+- Used `RANK()` and a subquery to handle potential duplicate amounts.
 
 
 ```sql
@@ -127,13 +145,13 @@ WHERE rnk <= 3;
 ![alt text](<Top 3 Paid Employees Per Department.png>)
 
 
-**Explanation:** Helps HR know the highest paid 3 employees in each department.
-
+**Real-Life Application:** Rewarding top performers or identifying peak Emplyees Salary.
 ---
 
-### 4. First 2 Employees Per Department by Hire Date
+### 4. Finding the Earliest Records
 
-To identify the first two employees hired in each department, we use ROW_NUMBER() over a partition by department and ordered by hire_date in ascending order. ROW_NUMBER() assigns a unique sequence to each employee based on when they joined. We then filter where the row number is less than or equal to 2 to get only the first two hires. This approach helps trace departmental history and gives insight into long-term staff members.
+- Pulled the **first 2 Employees** from each region based on `sale_date`.
+- Used `ROW_NUMBER()` to identify earliest records in each partition.
 
 ```sql
 SELECT *
@@ -147,15 +165,15 @@ WHERE row_num <= 2;
 
 ![alt text](<First 2 Employees Per Department (based on hire_date).png>)
 
-
-**Explanation:** Finds the earliest 2 employees hired in each department.
-
+**Real-Life Application:**  Auditing early Employees or onboarding activity.
 ---
 
-### 5. Max Salary Per Department and Overall
+### 5. Aggregation with Window Functions
 
-For this task, we calculate both the maximum salary within each department and the overall maximum salary across the entire company using the MAX() window function. MAX(salary) OVER (PARTITION BY department) returns the highest salary within each department, while MAX(salary) OVER () returns the overall maximum. By using PARTITION BY, we can separate results by category (departments) and also assess company-wide statistics, all while keeping full detail in the query output.
 
+- Calculated:
+  - The **maximum Salary per Department** using `PARTITION BY`.
+  - The **overall maximum Salary** without partitioning.
 
 ```sql
 SELECT 
@@ -168,12 +186,11 @@ FROM employees;
 ![alt text](<Maximum Salary Per Department and Overall.png>)
 
 
-
-**Explanation:** Displays the highest salary in each department and overall.
+**Real-Life Application:**  Highlighting High salary across all Employees.
 
 ---
 
-## 📌 Findings
+## 📌 Overview
 
 - `Mugisha` has the highest salary (950,000 RWF) in the IT department.
 - The Finance department has a salary range between 750,000 and 900,000 RWF.
@@ -184,19 +201,21 @@ FROM employees;
 
 ## 🌍 Real-Life Applications
 
-- **HR Systems:** Track top performers and salary fairness.
-- **Payroll Auditing:** Compare salaries with history.
-- **Hiring Reports:** Identify longest-serving employees.
-- **Business Analytics:** Help with budgeting and planning.
+- Time-based performance analytics.
+- Departments-specific leaderboards.
+- Highlight Salaries and KPI benchmarking in Employees Salary dashboards.
+
 
 ---
 
-### 🧠 Conclusion
+### 🧠 Concluding
 
-In this assignment, we used SQL window functions to get deeper insights into employee data. We saw how RANK(), ROW_NUMBER(), LAG(), and LEAD() can help us understand salary comparisons, employee rankings, and hiring patterns across departments.
+This project demonstrated the power and versatility of SQL Window Functions through a sales dataset in the part of Employees Departments. By applying analytical functions like LAG(), LEAD(), RANK(), DENSE_RANK(), ROW_NUMBER(), and window-based aggregations, we gained deeper insights into Employees Salaries, top performers, and High salaries than others.
 
-This kind of analysis is very useful in real companies. It helps managers make smart decisions about promotions, hiring, and salaries. Even though we used simple data, these techniques are used in big organizations to manage thousands of employees.
+ Whether it’s RANK()ing the best sellers or using LAG() to reflect on past records,
+ these techniques are not only useful for academic purposes but also play a crucial role in real-world data analysis and reporting. 
+ 
+ The project helped us understand how to compare records, identify patterns, and generate business intelligence—all directly from SQL.
 
-Learning how to use window functions is an important skill for anyone interested in data analysis, human resources, or software development.
+Mission accomplished — with data, clarity, and a dash of fun!
 
-👏 Thank you for reading!
