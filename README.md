@@ -12,15 +12,27 @@ Welcome to INSERT Laughs INTO Project – a SQL-based exploration of window func
 We built this project not only to demonstrate technical understanding but also to highlight how these functions apply to real-world business scenarios — all while having a bit of fun with a punny group name 😄.
 
 # 📊 Sample Sales Dataset (10 Records)
+<img width="354" alt="creating table" src="https://github.com/user-attachments/assets/1a4e3a4f-6e50-45a5-923f-6b73060895fd" />
 
-sales_id	employee_name	region	amount	sale_date
-1	Alice	East	1200	2024-01-15
-2	Bob	East	1500	2024-01-17
-3	Charlie	East	1500	2024-01-18
-4	Dana	West	2000	2024-01-12
-5	Eva	West	2500	2024-01-14
-6	Frank	West	1800	2024-01-16
-7	Grace	East	1300	2024-01-19
-8	Henry	North	1700	2024-01-11
-9	Ivy	North	1600	2024-01-13
-10	Jake	North	1750	2024-01-20
+codes:
+
+CREATE TABLE sales (
+    sales_id INT PRIMARY KEY,
+    employee_name VARCHAR(50),
+    region VARCHAR(20),
+    amount INT,
+    sale_date DATE
+);
+
+ INSERT INTO sales (sales_id, employee_name, region, amount, sale_date) VALUES
+(1, 'Alice', 'East', 1200, '2024-01-15'),
+(2, 'Bob', 'East', 1500, '2024-01-17'),
+(3, 'Charlie', 'East', 1500, '2024-01-18'),
+(4, 'Dana', 'West', 2000, '2024-01-12'),
+(5, 'Eva', 'West', 2500, '2024-01-14'),
+(6, 'Frank', 'West', 1800, '2024-01-16'),
+(7, 'Grace', 'East', 1300, '2024-01-19'),
+(8, 'Henry', 'North', 1700, '2024-01-11'),
+(9, 'Ivy', 'North', 1600, '2024-01-13'),
+(10, 'Jake', 'North', 1750, '2024-01-20');
+
