@@ -1,5 +1,9 @@
 # INSERT-Laughs-INTO-Project
-This project demonstrates the power of  SQL Window Functions on a fictional "Sales Dataset". Using queries enriched with `LAG()`, `LEAD()`, `RANK()`, `DENSE_RANK()`, `ROW_NUMBER()`, and aggregate functions, we explore how modern SQL can simplify complex analytics with humor and clarity
+
+This project serves as a demonstration of the analytical capabilities and expressive power of SQL Window Functions, applied to a hypothetical dataset referred to as the "Sales Dataset." Through the strategic implementation of advanced SQL constructs—including LAG(), LEAD(), RANK(), DENSE_RANK(), ROW_NUMBER(), and a variety of aggregate functions—we illustrate how contemporary SQL techniques can be leveraged to perform intricate data analyses with efficiency and precision. These functions enable us to traverse rows contextually,  and observe trends that would otherwise require complex procedural logic.
+
+The queries developed in this project are intentionally crafted to not only reveal valuable insights but also present them with a touch of humor and clarity, making the learning process both intellectually rewarding and engaging. Ultimately, this endeavor underscores how modern SQL empowers analysts and developers to transform raw data into actionable knowledge with elegance and minimal overhead.
+
 
 # Collaborators 
 # Baraka Johnson Bright ( 25583 )
