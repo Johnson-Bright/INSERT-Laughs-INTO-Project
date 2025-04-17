@@ -29,7 +29,9 @@ CREATE TABLE employees (
 );
 ```
 
-![alt text](<creation of Employee table-1.png>)
+![creation of Employee table-1](https://github.com/user-attachments/assets/de0f43e5-eebd-46f9-9de8-20f16e02d481)
+
+
 
 Then, we inserted  data into the table:
 
@@ -58,7 +60,8 @@ SELECT * FROM dual;
 
 ```
 
-![alt text](<Insertion of sample datas.png>)
+
+![Insertion of sample datas](https://github.com/user-attachments/assets/243ac5ef-cc98-411a-9fdc-a8a945da6567)
 
 ---
 
@@ -66,7 +69,8 @@ SELECT * FROM dual;
 
 ### 1. Comparison between salaries using `LAG()` and `LEAD()`
 
-![alt text](<Comparison  of Salaries Using LAG() and LEAD().png>)
+
+![Comparison  of Salaries Using LAG() and LEAD()](https://github.com/user-attachments/assets/dcea5c81-764a-446a-ac4e-c1c7a949e282)
 
 
 
@@ -100,7 +104,9 @@ FROM employees;
 ### 2. Rank Within Departments (`RANK()` and `DENSE_RANK()`)
 
 
-![alt text](<Rank Within Departments Using RANK and DENSE_RANK.png>)
+![Rank Within Departments Using RANK and DENSE_RANK](https://github.com/user-attachments/assets/f56e9714-e7c7-4c64-b0e2-1792da01bc8f)
+
+
 
 
 - Ranked Employees within each region using both `RANK()` and `DENSE_RANK()`.
@@ -142,7 +148,10 @@ FROM (
 WHERE rnk <= 3;
 ```
 
-![alt text](<Top 3 Paid Employees Per Department.png>)
+
+![Top 3 Paid Employees Per Department](https://github.com/user-attachments/assets/102c68a4-fc62-40f2-a7e2-016056cb4506)
+
+
 
 
 **Real-Life Application:** Rewarding top performers or identifying peak Emplyees Salary.
@@ -163,7 +172,8 @@ FROM (
 WHERE row_num <= 2;
 ```
 
-![alt text](<First 2 Employees Per Department (based on hire_date).png>)
+![First 2 Employees Per Department (based on hire_date)](https://github.com/user-attachments/assets/1ae48b58-959a-426a-89e8-b496b364074b)
+
 
 **Real-Life Application:**  Auditing early Employees or onboarding activity.
 ---
@@ -183,7 +193,8 @@ SELECT
 FROM employees;
 
 ```
-![alt text](<Maximum Salary Per Department and Overall.png>)
+
+![Maximum Salary Per Department and Overall](https://github.com/user-attachments/assets/92e0ad64-7850-4aff-bc08-85f38dc9f486)
 
 
 **Real-Life Application:**  Highlighting High salary across all Employees.
