@@ -3,7 +3,7 @@ This project demonstrates the power of  SQL Window Functions on a fictional "Sal
 
 # Collaborators 
 # Baraka Johnson Bright ( 25583 )
-# 
+# Ndahindurwa Gael (25512)  
 
 # 📘 Introduction
 -
@@ -16,8 +16,12 @@ We built this project not only to demonstrate technical understanding but also t
 
 ---
 
-## 📥 Get on Hand
-To begin the assignment, we created a simple dataset related to employees. The table  is created as follows:
+## 📥 let's Get on Hand
+
+At the initial stage of the assignment, it was imperative to establish a well-defined and logically structured dataset to serve as the basis for all ensuing operations and analyses. Consequently, we developed a simple yet representative dataset focused on employee information, as this subject matter is commonly used in database design due to its relevance and applicability in real-world organizational settings. The dataset was designed to include essential employee attributes such as identification numbers, names, job roles, departments, and salaries, thereby ensuring that it provides a sufficient level of complexity for demonstrating various database functionalities while remaining manageable for analysis. The creation of the corresponding table, which encapsulates the structure of this dataset, adhered to standard database normalization principles and was implemented using SQL data definition commands. The schema of the table, as illustrated below, reflects thoughtful consideration of data types, constraints, and relational integrity to ensure both accuracy and consistency throughout the assignment.
+
+
+The table  is created as follows:
 
 ```sql
 CREATE TABLE employees (
@@ -31,6 +35,9 @@ CREATE TABLE employees (
 
 ![creation of Employee table-1](https://github.com/user-attachments/assets/de0f43e5-eebd-46f9-9de8-20f16e02d481)
 
+
+
+Following the successful creation and structural definition of the employee-related table, we proceeded to populate the table with a series of data entries. This step involved the systematic insertion of sample records that accurately reflect realistic employee information, thereby enabling us to simulate real-world scenarios for testing and analysis purposes. The data insertion process was carried out using structured SQL INSERT statements, ensuring that each record adhered to the previously defined schema in terms of data types, constraints, and referential integrity. The intention behind this step was to establish a functional and meaningful dataset upon which various database operations and queries could be effectively demonstrated.
 
 
 Then, we inserted  data into the table:
@@ -72,12 +79,18 @@ SELECT * FROM dual;
 
 ![Comparison  of Salaries Using LAG() and LEAD()](https://github.com/user-attachments/assets/dcea5c81-764a-446a-ac4e-c1c7a949e282)
 
+The analytical SQL window functions LAG() and LEAD() were utilized to perform a comparative assessment of each employee’s salary in relation to the preceding and succeeding records within a defined order—typically based on employee identification numbers or chronological hiring dates. The purpose of employing these functions was to enable row-wise comparisons that reveal patterns or shifts in salary distribution across consecutive employees.
+
+Additionally, an auxiliary column was introduced to the result set. This column dynamically evaluates and categorizes the current employee’s salary by comparing it to the previous record retrieved using the LAG() function. Based on this comparison, a textual label is assigned to each row, indicating whether the current salary value is HIGHER, LOWER, or EQUAL relative to its immediate predecessor. This enhances interpretability and provides a qualitative understanding of salary progression.
+
+
 
 
 - Used `LAG()` and `LEAD()` to compare each Employment’s Salary to the previous and next.
 - Added a column that states whether the current value is `HIGHER`, `LOWER`, or `EQUAL` compared to the previous record.
 
-💡 *Real-Life Application:* Analyzing trends in sales performance day by day.
+💡 Practical Application in Real-World Contexts:
+A comparable use case in industry would involve tracking and analyzing daily sales performance metrics over time. By comparing each day’s revenue to that of the previous and following days, business analysts can detect upward or downward trends, identify anomalies, and make data-driven decisions to optimize performance and resource allocation.
 
 
 ```sql
